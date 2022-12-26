@@ -44,7 +44,7 @@ $(SHAREDLIB)_LINK_OBJS := $(foreach target,$($(SHAREDLIB)_TARGETS), $($(target)_
 
 $(BINARY_DIR)/$(SHAREDLIB): $($(SHAREDLIB)_LINK_OBJS)
 	@echo "    LinkingShared$(LINFO): $(MODULE)::$(notdir $@)"
-	$(VERBOSE)$(GCC) -shared $(DEBUG_FLAGS) $(COVERAGE_FLAGS) $(LDFLAGS) -o $@ $($(SHAREDLIB)_LINK_OBJS) $(GLOBAL_LINK_LIBS) -Wl,-soname,$(SHAREDLIB).1
+	$(VERBOSE)$(GCC) -shared $(DEBUG_FLAGS) $(COVERAGE_FLAGS) $(LDFLAGS) -o $@ $($(SHAREDLIB)_LINK_OBJS) $(GLOBAL_LINK_LIBS) -Wl,--allow-multiple-definition,-soname,$(SHAREDLIB).1
 
 
 
