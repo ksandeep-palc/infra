@@ -18,7 +18,7 @@ class ModuleTool(object):
 
     def __load_module(self, fname):
         try:
-            d = yaml.load(open(fname))
+            d = yaml.load(open(fname), Loader=yaml.FullLoader)
         except:
             self.logger.exception()
 
